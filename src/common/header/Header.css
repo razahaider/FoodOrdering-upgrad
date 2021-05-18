@@ -1,21 +1,10 @@
-#menu-user {
-    margin-left: 20px;
-    margin-top: 30px;
-    padding: 0px;
-}
-
-.product-icon {
-    align-self: center;
-    padding-left: 10px;
-}
-
 @media screen and (max-width:600px) {
     .product-head {
         align-items: flex-start;
         justify-content: space-between;
         flex-direction: column;
     }
-    .product-icon {
+    .icon-product {
         align-self: flex-start;
     }
 }
@@ -28,28 +17,26 @@
     padding: 10px;
 }
 
-.login-modal-tabs {
-    margin-bottom: 20px;
+.icon-product {
+    align-self: center;
+    padding-left: 10px;
 }
 
-.button-login {
+#logo-search {
+    height: 27px;
+    padding: 0px 0px 0px 10px;
+}
+
+.head-login {
     padding-right: 10px;
 }
 
-.button-profile {
+.logo-profile {
     padding-right: 10px;
 }
 
-.displayBlock {
-    display: block;
-}
-
-.displayNone {
+.dispNone {
     display: none;
-}
-
-.red {
-    color: red;
 }
 
 .search-header {
@@ -60,7 +47,26 @@
     width: 300px;
 }
 
-#search-icon {
-    height: 27px;
-    padding: 0px 0px 0px 10px;
+.red {
+    color: red;
+}
+
+.login-panel {
+    margin-bottom: 20px;
+}
+
+#list-profile {
+    padding: 0px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.dispBlock {
+    display: block;
+}
+
+#list-profile {
+    padding: 0px;
+    margin-left: 20px;
+    margin-top: 30px;
 }
