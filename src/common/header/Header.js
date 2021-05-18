@@ -406,7 +406,7 @@ class Header extends Component {
             xhrSearchRestaurant.addEventListener("readystatechange", function () {
                 if (xhrSearchRestaurant.readyState === 4 && xhrSearchRestaurant.status === 200) {
                     var restaurant = JSON.parse(this.responseText).restaurants;
-                    that.props.updateSearchRestaurant(restaurant, searchOn);
+                    that.props.searchRestaurantEventHandle(restaurant, searchOn);
                 }
             })
 
@@ -418,7 +418,7 @@ class Header extends Component {
         } else {
             let restaurant = [];
             searchOn = false
-            this.props.updateSearchRestaurant(restaurant, searchOn);
+            this.props.searchRestaurantEventHandle(restaurant, searchOn);
 
         }
     }
