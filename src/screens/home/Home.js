@@ -21,22 +21,22 @@ const appStyles = (theme => ({
         backgroundColor: theme.palette.background.paper
     },
 
-
-    gridCard: {
-        '@media (min-width: 1200px)': {
+    
+    gridCard: { 
+        '@media (min-width: 1200px)': { 
 
             'flex-grow': '0',
             'max-width': '25%',
             'flex-basis': '25%',
         },
 
-        '@media (min-width: 960px) and (max-width:1200px)': {
+        '@media (min-width: 960px) and (max-width:1200px)': { 
             'flex-grow': '0',
             'max-width': '33%',
             'flex-basis': '33%',
         },
     },
-    grid: {
+    grid: {  
         "padding": "20px",
         "margin-left": "0.5%",
         "margin-right": "0.5%",
@@ -46,19 +46,19 @@ const appStyles = (theme => ({
 
     card: {
         height: "500px",
-        '@media (min-width: 1300px)': {
+        '@media (min-width: 1300px)': { 
             height: "500px",
         },
-        '@media (min-width: 960px) and (max-width:1300px)': {
+        '@media (min-width: 960px) and (max-width:1300px)': {  
             height: "375px",
         }
     },
 
-    media: {
+    media: { 
         height: "40%",
         width: "100%",
     },
-
+    
     categories: {
         "font-size": "16px",
         '@media (min-width: 1300px)': {
@@ -85,7 +85,7 @@ const appStyles = (theme => ({
     },
 
 
-    cardContent: {
+    cardContent: { 
         "padding": "10px",
         "height": "20%",
         "display": "flex",
@@ -93,7 +93,7 @@ const appStyles = (theme => ({
         "margin-left": "20px",
         "margin-right": "20px",
     },
-    cardActionArea: {
+    cardActionArea: { 
         "flex-direction": "column",
         "align-items": "normal",
         "justify-content": "space-between",
@@ -113,12 +113,12 @@ class Home extends Component {
         }
     }
 
-
+   
     componentDidMount() {
         let data = null;
         let xhrRestaurant = new XMLHttpRequest();
         let that = this;
-        xhrRestaurant.addEventListener("readystatechange", function() {
+        xhrRestaurant.addEventListener("readystatechange", function () {
             if (xhrRestaurant.readyState === 4 && xhrRestaurant.status === 200) {
                 let restaurant = JSON.parse(xhrRestaurant.responseText)
                 that.setState({
@@ -131,7 +131,7 @@ class Home extends Component {
     }
 
 
-    searchRestaurantEventHandle = (searchRestaurant, searchOn) => {
+   searchRestaurantEventHandle = (searchRestaurant, searchOn) => {
         let allRestaurantData = [];
         if (searchOn) {
             if (!this.state.isSearchOn) {
@@ -163,100 +163,61 @@ class Home extends Component {
 
     render() {
         const { classes } = this.props;
-        return ( <
-            div >
-
-            <
-            Header baseUrl = { this.props.baseUrl }
-            showHeaderSearchBox = { true }
-            searchRestaurantEventHandle = { this.searchRestaurantEventHandle } > < /Header> <
-            div className = "flex-container" >
-            <
-            Grid container spacing = { 3 }
-            wrap = "wrap"
-            alignContent = "center"
-            className = { classes.grid } > {
-                this.state.restaurant !== null ? this.state.restaurant.map(restaurant => (
-
-                    <
-                    Grid key = { restaurant.id }
-                    item xs = { 12 }
-                    sm = { 6 }
-                    md = { 3 }
-                    className = { classes.gridCard } >
-                    <
-                    Card className = { classes.card } >
-                    <
-                    CardActionArea className = { classes.cardActionArea }
-                    onClick = {
-                        () => this.getRestaurantDetailsHandler(restaurant.id) } >
-                    <
-                    CardMedia className = { classes.media }
-                    image = { restaurant.photo_URL }
-                    title = { restaurant.restaurant_name }
-                    /> <
-                    CardContent className = { classes.cardContent } >
-                    <
-                    Typography className = { classes.title }
-                    variant = "h5"
-                    component = "h2" > { restaurant.restaurant_name } <
-                    /Typography> <
-                    /CardContent> <
-                    CardContent className = { classes.cardContent } >
-                    <
-                    Typography variant = "subtitle1"
-                    component = "p"
-                    className = { classes.categories } > { restaurant.categories } <
-                    /Typography> <
-                    /CardContent> <
-                    CardContent className = { classes.cardContent } >
-                    <
-                    div className = "below-cardinformation" >
-                    <
-                    span className = "restaurant-rating-detail" >
-                    <
-                    span >
-                    <
-                    FontAwesomeIcon icon = "star"
-                    size = "lg"
-                    color = "white" / >
-                    <
-                    /span> <
-                    Typography variant = "caption"
-                    component = "p" > { restaurant.customer_rating } < /Typography> <
-                    Typography variant = "caption"
-                    component = "p" > ({ restaurant.number_customers_rated }) < /Typography> <
-                    /span> <
-                    span className = "restaurant-panel" >
-                    <
-                    Typography variant = "caption"
-                    component = "p"
-                    style = {
-                        { fontSize: '14px' } } >
-                    <
-                    i className = "fa fa-inr"
-                    aria - hidden = "true" > < /i> { restaurant.average_price } <
-                    /Typography> <
-                    Typography variant = "caption"
-                    component = "p"
-                    style = {
-                        { fontSize: '14px' } } >
-                    for two < /Typography> <
-                    /span> <
-                    /div> <
-                    /CardContent> <
-                    /CardActionArea> <
-                    /Card> <
-                    /Grid>
-                )) :
-                    < Typography variant = 'body1'
-                component = 'p' >
-                No restaurant with given name. <
-                /Typography>
-            } <
-            /Grid> <
-            /div> <
-            /div>
+        return (
+            <div>
+               
+                <Header baseUrl={this.props.baseUrl} showHeaderSearchBox={true} searchRestaurantEventHandle={this.searchRestaurantEventHandle}></Header>
+                <div className="flex-container">
+                    <Grid container spacing={3} wrap="wrap" alignContent="center" className={classes.grid}>
+                      {this.state.restaurant !== null ? this.state.restaurant.map(restaurant => (
+                        
+                            <Grid key={restaurant.id} item xs={12} sm={6} md={3} className={classes.gridCard}>
+                                <Card className={classes.card}>
+                                    <CardActionArea className={classes.cardActionArea} onClick={() => this.getRestaurantDetailsHandler(restaurant.id)}>
+                                        <CardMedia
+                                            className={classes.media}
+                                            image={restaurant.photo_URL}
+                                            title={restaurant.restaurant_name}
+                                        />
+                                        <CardContent className={classes.cardContent}>
+                                            <Typography className={classes.title} variant="h5" component="h2">
+                                                {restaurant.restaurant_name}
+                                            </Typography>
+                                        </CardContent>
+                                        <CardContent className={classes.cardContent}>
+                                            <Typography variant="subtitle1" component="p" className={classes.categories}>
+                                                {restaurant.categories}
+                                            </Typography>
+                                        </CardContent>
+                                        <CardContent className={classes.cardContent}>
+                                            <div className="below-cardinformation">
+                                                <span className="restaurant-rating-detail">
+                                                    <span>
+                                                        <FontAwesomeIcon icon="star" size="lg" color="white" />
+                                                    </span>
+                                                    <Typography variant="caption" component="p" >{restaurant.customer_rating}</Typography>
+                                                    <Typography variant="caption" component="p" >({restaurant.number_customers_rated})</Typography>
+                                                </span>
+                                                <span className="restaurant-panel">
+                                                    <Typography variant="caption" component="p" style={{fontSize: '14px'}}>
+                                                        <i className="fa fa-inr" aria-hidden="true"></i>
+                                                        {restaurant.average_price}
+                                                    </Typography>
+                                                    <Typography variant="caption" component="p" style={{fontSize: '14px'}}>for two</Typography>
+                                                </span>
+                                            </div>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
+                        ))
+                    :<Typography variant='body1' component='p'>
+                        No restaurant with given name.
+                    </Typography>
+                    }
+                    </Grid>
+                </div>
+            </div>
         )
     }
 }
